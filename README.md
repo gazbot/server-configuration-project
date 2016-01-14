@@ -1,6 +1,7 @@
 # Linux Server Configuration Project
-IP Address: 52.24.217.75
-URL for web application: http://ec2-52-24-217-75.us-west-2.compute.amazonaws.com/
+* IP Address: 52.24.217.75
+* SSH Port: 2200
+* URL for web application: http://ec2-52-24-217-75.us-west-2.compute.amazonaws.com/
 
 ## Installed software
 * `git`
@@ -18,5 +19,12 @@ URL for web application: http://ec2-52-24-217-75.us-west-2.compute.amazonaws.com
 * `postgresql`, configured to run locally, not on external network. created user/database for application.
 * `postgresql-contrib` 
 
+
+## Running the Application
+Open a web browser and go to the URL http://ec2-52-24-217-75.us-west-2.compute.amazonaws.com/
+
+
 ## External References
 https://discussions.udacity.com/t/markedly-underwhelming-and-potentially-wrong-resource-list-for-p5/8587
+https://help.ubuntu.com/community/AutomaticSecurityUpdates
+https://help.ubuntu.com/community/AutoWeeklyUpdateHowTo
