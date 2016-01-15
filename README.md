@@ -101,12 +101,22 @@
     * save file and exit vim
     * `sudo service apache2 restart`  
 1. Add weekly cron schedule for automatic security updates
-    * create `/etc/cron.weekly/apt-security-updates` and add the following to the file
+    * `sudo vim /etc/cron.weekly/apt-security-updates` and add the following lines
         * `echo "**************" >> /var/log/apt-security-updates`
         * `date >> /var/log/apt-security-updates`
         * `aptitude update >> /var/log/apt-security-updates`
         * `aptitude safe-upgrade -o Aptitude::Delete-Unused=false --assume-yes --target-release `lsb_release -cs`-security >> /var/log/apt-security-updates`
-        * `echo 
+        * `echo "Security updates (if any) installed"
+    * save file and exit vim
+    * `sudo chmod +x /etc/cron.weekly/apt-security-updates`
+    * `sudo vim /etc/logrotate.d/apt-security-updates` and add the following lines
+        * `/var/log/apt-security-updates {`
+        * `         rotate 2`
+        * `         weekly`
+        * `         size 250k`
+        * `         compress`
+        * `         notifempty`
+        * `}`
 1. Install Munin for server monitoring
     * `sudo apt-get install munin`
     * `sudo vim /etc/munin/munin.conf`
